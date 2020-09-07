@@ -85,7 +85,7 @@ prescriptions.to_csv(os.path.join(args.output_path, 'all_prescriptions.csv'), in
 print ('all_prescriptions_done')
 
 #====================================================================================
-phenotypes = add_hcup_ccs_2015_groups(diagnoses, yaml.load(open(args.phenotype_definitions, 'r')))
+phenotypes = add_hcup_ccs_2015_groups(diagnoses, yaml.safe_load(open(args.phenotype_definitions, 'r')))
 make_phenotype_label_matrix(phenotypes, stays).to_csv(os.path.join(args.output_path, 'phenotype_labels.csv'),
                                                       index=False, quoting=csv.QUOTE_NONNUMERIC)
 #====================================================================================
